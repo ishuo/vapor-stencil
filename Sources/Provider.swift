@@ -11,15 +11,18 @@ public class Provider: Vapor.Provider {
         if let value = self.renderer {
             renderer = value
         } else {
-            renderer = StencilRenderer(
-                namespace: Namespace(),
-                templateLoader: TemplateLoader(paths: [Path(application.viewsDir)])
-            )
-
+            renderer = self.makeRenderer(with: application)
             self.renderer = renderer
         }
 
         View.renderers[".stencil"] = renderer
+    }
+
+    public func makeRenderer(with app: Application) -> StencilRenderer {
+        return StencilRenderer(
+            namespace: Namespace(),
+            templateLoader: TemplateLoader(paths: [Path(app.viewsDir)])
+        )
     }
 
 }
