@@ -4,9 +4,9 @@ import Vapor
 
 
 public class Provider: Vapor.Provider {
-  public static var renderer: StencilRenderer?
+  public var renderer: StencilRenderer?
   
-  public static func boot(application: Application) {
+  public func boot(application: Application) {
     let renderer: StencilRenderer
     
     if let r = Provider.renderer {
