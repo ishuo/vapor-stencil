@@ -2,10 +2,6 @@ import Stencil
 import PathKit
 import Vapor
 
-extension Application {
-  var resourcesDir: String { return workDir + "Resources/" }
-  var viewsDir: String { return resourcesDir + "Views/" }
-}
 
 public class Provider: Vapor.Provider {
   public static var renderer: StencilRenderer?
