@@ -9,7 +9,7 @@ public class Provider: Vapor.Provider {
   public func boot(application: Application) {
     let renderer: StencilRenderer
     
-    if let r = Provider.renderer {
+    if let r = renderer {
       renderer = r
     } else {
       renderer = StencilRenderer(
